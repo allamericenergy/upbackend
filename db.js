@@ -57,13 +57,12 @@ const config = {
 
 };
 
-let pool;
+//let pool;
 
 const connectDB = async () => {
 
   try {
 
-    pool =
       await sql.connect(config);
 
     console.log(
@@ -79,6 +78,5 @@ const connectDB = async () => {
 
 module.exports = {
   sql,
-  pool,
   connectDB,
 };
