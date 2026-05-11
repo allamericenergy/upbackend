@@ -31,48 +31,33 @@ module.exports = {
 }; */
 
 const sql = require('mssql');
-
 require('dotenv').config();
 
 const config = {
-
   user: process.env.DB_USER,
-
-  password:
-    process.env.DB_PASSWORD,
-
-  server:
-    process.env.DB_SERVER,
-
-  database:
-    process.env.DB_DATABASE,
-
-  options: {
-
-    encrypt: true,
-
-    trustServerCertificate: true,
-
+  password: process.env.DB_PASSWORD,
+  server: process.env.DB_SERVER,
+  database: process.env.DB_DATABASE,
+  port: 1433,
+  authentication: {
+    type: "default",
   },
-
+  options: {
+    encrypt: true,
+    trustServerCertificate: true,
+  },
 };
 
 //let pool;
 
 const connectDB = async () => {
-
   try {
-
-      await sql.connect(config);
-
+    await sql.connect(config);
     console.log(
       'Azure SQL Connected'
     );
-
   } catch (error) {
-
     console.log(error);
-
   }
 };
 
