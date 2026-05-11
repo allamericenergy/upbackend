@@ -233,6 +233,33 @@ router.get(
   }
 );
 
+// Get logins
+router.get(
+  '/logins',
+  protect,
+  adminOnly,
+  async (req, res) => {
+
+    try {
+
+      const result = await sql.query`
+        SELECT *
+        FROM Users      
+      `;
+
+      res.json(result.recordset);
+
+    } catch (error) {
+
+      res.status(500).json({
+        message: error.message,
+      });
+
+    }
+
+  }
+);
+
 // Add Company
 router.post(
   '/add-company',
