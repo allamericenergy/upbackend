@@ -3,9 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
-
-
-
 dotenv.config();
 console.log("STEP 2 - dotenv loaded");
 const { connectDB } = require('./db');
@@ -36,7 +33,7 @@ app.use('/api/auth', authRoutes);
 /* Health Route */
 app.get('/', (req, res) => {
   res.send(
-    'CRM Backend Running.........'
+    `CRM Backend Running......... Port: ${PORT}`
   );
 });
 //console.log("STEP 6 - after connectDB");
