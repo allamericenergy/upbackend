@@ -1,11 +1,18 @@
+console.log("STEP 1 - server.js started");
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
-const { connectDB } = require('./db');
-const authRoutes = require('./routes/authRoutes');
+
+
 
 dotenv.config();
+console.log("STEP 2 - dotenv loaded");
+const { connectDB } = require('./db');
+console.log("STEP 3 - db imported");
+const authRoutes = require('./routes/authRoutes');
+
+console.log("STEP 4 - routes imported");
 
 const app = express();
 app.use(express.json());
@@ -19,6 +26,8 @@ app.use(cors({
   origin:"*",
 }));
 
+console.log("STEP 5 - before connectDB");
+
 const PORT =  process.env.PORT || 5000;
 
 
@@ -30,8 +39,11 @@ app.get('/', (req, res) => {
     'CRM Backend Running'
   );
 });
+//console.log("STEP 6 - after connectDB");
+
 
 connectDB();
+console.log("STEP 6 - after connectDB");
 
 
 
