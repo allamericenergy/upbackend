@@ -36,7 +36,7 @@ app.use('/api/auth', authRoutes);
 /* Health Route */
 app.get('/', (req, res) => {
   res.send(
-    'CRM Backend Running'
+    'CRM Backend Running.........'
   );
 });
 //console.log("STEP 6 - after connectDB");
